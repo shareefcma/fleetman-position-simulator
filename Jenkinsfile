@@ -6,10 +6,10 @@ pipeline {
      // ORGANIZATION_NAME
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
      ECR_URI = "842970055596.dkr.ecr.us-east-1.amazonaws.com"
-     REP_O = "leg888"
+     REP_O   = "leg888"
      
      SERVICE_NAME = "fleetman-position-simulator" 
-      REPOSITORY_TAG="${ECR_URI}/${REP_O}:${SERVICE_NAME}"
+     REPOSITORY_TAG="${ECR_URI}/${REP_O}:${SERVICE_NAME}"
    }
 
    stages {
@@ -28,7 +28,6 @@ pipeline {
          steps {
            
            sh 'sudo docker image build -t ${REPOSITORY_TAG} .'
-           sh '$(aws ecr get-login --no-include-email --region us-east-1)'
            sh 'sudo docker push ${REPOSITORY_TAG}'
          }
       }
