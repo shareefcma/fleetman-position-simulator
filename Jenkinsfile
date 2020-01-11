@@ -9,7 +9,7 @@ pipeline {
      REP_O = "leg888"
      
      SERVICE_NAME = "fleetman-position-simulator" 
-      REPOSITORY_TAG="${ECR_URI}/${REP_O}:${SERVICE_NAME}${BUILD_ID}"
+      REPOSITORY_TAG="${ECR_URI}/${REP_O}:${SERVICE_NAME}"
    }
 
    stages {
